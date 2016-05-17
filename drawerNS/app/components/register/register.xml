@@ -1,0 +1,15 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:widgets="utils/widgets" loaded="pageLoaded">
+  <Page.actionBar>
+    <widgets:action-bar />
+  </Page.actionBar>
+
+  <StackLayout orientation="vertical">
+
+    <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+    <TextField hint="Password" secure="true" />
+
+    <Button text="Registrarme" tap="signIn" />
+    <Button text="Regresar" class="link" tap="register" />
+
+  </StackLayout>
+</Page> 

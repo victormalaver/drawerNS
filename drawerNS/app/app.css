@@ -1,3 +1,6 @@
+@import { url('~/platform.css') };
+
+
 .km-icon {
     font-family: 'kendoui';
     vertical-align: center;
