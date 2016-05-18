@@ -2,35 +2,26 @@
 
 var frameModule = require("ui/frame");
 var viewModule = require("ui/core/view");
-var email;
-
-var Observable = require("data/observable").Observable;
-
-var user = new Observable({
-                              email: "user@domain.com",
-                              password: "password"
-                          });
 
 var isInit = true,
-    helpers = require('../../utils/widgets/helper'),
-// additional requires
-    viewModel = require('./homeView-view-model');
+    helpers = require('../../utils/widgets/helper');
 
+//llamada al modelo
+var viewModel = require('./homeView-view-model');
 
-//ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRR dont call
+//llamada a los servicios
 var UserViewModel = require("./homeView-service");
-var user = new UserViewModel();
+var user = new UserViewModel(); 
 
 // additional functions
 function pageLoaded(args) {
     console.log("pageLoaded");
     var page = args.object;
-    
     helpers.platformInit(page);
-    page.bindingContext = viewModel;
-    // additional pageLoaded
     
-    email = viewModule.getViewById(page, "email");
+    //page.bindingContext = viewModel;
+    
+    // additional pageLoaded
     
     if (isInit) {
         isInit = false;
@@ -40,7 +31,20 @@ function pageLoaded(args) {
 
 exports.signIn = function() {
     console.log("Signing in");
-    console.log(email.text);
+    console.log(viewModel.email);
+    user.login()
+        .catch(function(error) {
+            console.log(error);
+            dialogsModule.alert({
+                                    message: "Unfortunately we could not find your account.",
+                                    okButtonText: "OK"
+                                });
+            return Promise.reject();
+        })
+        .then(function() {
+            //frameModule.topmost().navigate("views/list/list");
+            alert(789);
+        });
 };
 
 exports.register = function() {

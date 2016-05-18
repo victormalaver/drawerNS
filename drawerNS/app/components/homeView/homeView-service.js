@@ -1,6 +1,11 @@
-function Service() {
+console.log("homeView-service.js");
+
+var fetchModule = require("fetch");
+var configApiUrl = "https://api.everlive.com/v1/w5lgy8j8zqnblqj5/"; 
+
+function User() {
     viewModel.login = function() {
-        return fetchModule.fetch("https://api.everlive.com/v1/w5lgy8j8zqnblqj5/oauth/token", {
+        return fetchModule.fetch(configApiUrl + "oauth/token", {
                                      method: "POST",
                                      body: JSON.stringify({
                                                               username: viewModel.get("email"),
@@ -16,16 +21,20 @@ function Service() {
                 return response.json();
             })
             .then(function(data) {
-                config.token = data.Result.access_token;
+                alert(data.Result.access_token);
             });
     };
+    
+    
+	return viewModel;
 }
 
-// additional properties
+function handleErrors(response) {
+    if (!response.ok) {
+        console.log(JSON.stringify(response));
+        throw Error(response.statusText);
+    }
+    return response;
+}
 
-// START_CUSTOM_CODE_homeView
-// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-// END_CUSTOM_CODE_homeView
-
-module.exports = new Service();
+module.exports = User;
