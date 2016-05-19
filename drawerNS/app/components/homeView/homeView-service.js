@@ -1,9 +1,12 @@
 console.log("homeView-service.js");
 
+
+
 var fetchModule = require("fetch");
-var configApiUrl = "https://api.everlive.com/v1/w5lgy8j8zqnblqj5/"; 
+var configApiUrl = "https://api.everlive.com/v1/w5lgy8j8zqnblqj5/";  
 
 
+var viewModel = require('./homeView-view-model'); 
 
 function User() {
     viewModel.login = function() {

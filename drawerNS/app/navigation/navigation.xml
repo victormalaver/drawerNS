@@ -1,14 +1,56 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:widgets="utils/widgets" loaded="pageLoaded">
+<!--Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:widgets="utils/widgets" loaded="pageLoaded">
+<Page.actionBar>
+<widgets:action-bar />
+</Page.actionBar>
+
+<ListView class="list" items="{{ menuItems }}" itemTap="menuItemTap">
+<ListView.itemTemplate>
+<GridLayout cssClass="list-item" columns="auto, *">
+<Label cssClass="list-icon km-icon" text="{{ icon }}" />
+<Label cssClass="list-title" col="1" text="{{ title }}" textWrap="true" />
+</GridLayout>
+</ListView.itemTemplate>
+</ListView>
+</Page-->
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:widgets="utils/widgets" loaded="pageLoaded" xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer" xmlns="http://www.nativescript.org/tns.xsd">
+  <drawer:RadSideDrawer id="sideDrawer" drawerLocation="Left">
+    <drawer:RadSideDrawer.drawerContent>
+      <StackLayout >
+        <StackLayout >
+          <Label text="Navigation Menu"/>
+        </StackLayout>
+        <ScrollView>
+          <StackLayout class="st-drawer">
+            <ListView class="list" items="{{ menuItems }}" itemTap="menuItemTap">
+              <ListView.itemTemplate>
+                <GridLayout cssClass="list-item" columns="auto, *">
+                  <Label cssClass="list-icon km-icon" text="{{ icon }}" />
+                  <Label cssClass="list-title" col="1" text="{{ title }}" textWrap="true" />
+                </GridLayout>
+              </ListView.itemTemplate>
+            </ListView>
+          </StackLayout>
+        </ScrollView>
+      </StackLayout>
+    </drawer:RadSideDrawer.drawerContent>
+    <drawer:RadSideDrawer.mainContent>
+      <!-- your bottom functionallity follows here -->
+      <StackLayout style="vertical-align : center;color:red;">
+        <Label text="Primary" />
+        <Label text="Social" />
+        <Label text="Promotions"/>
+        <Label text="Labels" /> 
+      </StackLayout>
+
+      <StackLayout style="vertical-align : bottom">
+        <Button text="Delete" textWrap="true" />
+        <Button text="Facebook" textWrap="true" />
+        <Button text="Twitter" textWrap="true" />
+      </StackLayout>
+    </drawer:RadSideDrawer.mainContent>
+  </drawer:RadSideDrawer>
   <Page.actionBar>
     <widgets:action-bar />
   </Page.actionBar>
-
-  <ListView class="list" items="{{ menuItems }}" itemTap="menuItemTap">
-    <ListView.itemTemplate>
-      <GridLayout cssClass="list-item" columns="auto, *">
-        <Label cssClass="list-icon km-icon" text="{{ icon }}" />
-        <Label cssClass="list-title" col="1" text="{{ title }}" textWrap="true" />
-      </GridLayout>
-    </ListView.itemTemplate>
-  </ListView>
 </Page>

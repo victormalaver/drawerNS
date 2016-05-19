@@ -10,10 +10,11 @@ function onBack() {
 }
 
 function onIndex() {
-    var topmost = frameModule.topmost();
-
-    topmost.navigate('navigation/navigation');
+    //var topmost = frameModule.topmost();
+    //topmost.navigate('navigation/navigation');
+    var drawer = frameModule.topmost().getViewById("sideDrawer");
+    drawer.toggleDrawerState();
 }
 
 exports.onBack = onBack;
-exports.onIndex = onIndex;
+exports.onIndex = onIndex; 

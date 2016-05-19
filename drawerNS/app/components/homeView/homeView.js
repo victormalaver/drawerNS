@@ -3,6 +3,8 @@
 var frameModule = require("ui/frame");
 var viewModule = require("ui/core/view");
 
+var dialogsModule = require("ui/dialogs");
+
 var isInit = true,
     helpers = require('../../utils/widgets/helper');
 
