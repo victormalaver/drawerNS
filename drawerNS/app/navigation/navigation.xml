@@ -14,7 +14,7 @@
 </Page-->
 
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:widgets="utils/widgets" loaded="pageLoaded" xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer" xmlns="http://www.nativescript.org/tns.xsd">
-  <drawer:RadSideDrawer id="sideDrawer" drawerLocation="Left">
+  <drawer:RadSideDrawer id="sideDrawer" drawerLocation="Right">
     <drawer:RadSideDrawer.drawerContent>
       <StackLayout >
         <StackLayout >
